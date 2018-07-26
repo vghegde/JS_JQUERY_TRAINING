@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+#div1{
+	height:1000px;
+ 	width:1000px;	
+	background-color: lime;
+}
+
+#div2{
+height:600px;
+ 	width:600px;	
+	background-color: green;
+}
+
+#div3{
+height:300px;
+ 	width:300px;	
+	background-color: blue;
+}
+
+</style>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload=function(){
+	
+	var divs = document.getElementsByClassName("divs");
+	for (var i = 0; i < divs.length; i++) {
+		divs[i].addEventListener('click',function(ev){
+			alert("Target = "+ev.target.id+", "+"this= "+this.id);
+			ev.stopPropagation();	
+		},true );
+	}
+	
+	
+}
+
+</script>
+
+
+</head>
+<body>
+
+	<div class="divs" id="div1">
+		<div class="divs"  id="div2">
+			<div class="divs"  id="div3">
+				
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

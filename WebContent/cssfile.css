@@ -1,0 +1,78 @@
+
+#headerLeft{
+	background-color: red;
+	
+}
+
+#headerRight{
+	background-color: purple;
+}
+
+#tagLine{
+background-color: aqua;
+}
+
+
+#loginLine{
+background-color: maroon;
+}
+
+#nav{
+	background-color: green;
+}
+
+#side{
+	background-color: blue;
+}
+
+#main{
+	background-color: lime;
+}
+
+#footer{
+	background-color: navy;
+}
+
+#headerLeft>logodiv{
+background-color: orange;
+}
+
+
+
+
+
+
+
+
+
+
+.myh1{
+	color:red;
+				background-color:yellow;
+				font-size:60px;
+				font-weight:bold;
+	
+	}
+		
+.demo{
+				test-decoration:underline;
+								background-color:aqua;
+				
+}
+
+h3{
+	
+				test-decoration:underline;
+								background-color:lime;
+	
+}
+
+/*This is a commnet
+Styling for Ids*/
+
+#para2{
+	
+	background-color:blue;
+				font-size:10px;
+	
+}

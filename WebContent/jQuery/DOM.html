@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script src="jQuery.js"></script>
+<script type="text/javascript">
+	$(function() {
+
+
+		
+		$( "h1" ).click(function() {
+
+			$(this).siblings().css('color','red');
+			$(this).css('color','black')
+			$(this).prev().css('color','aqua');
+			$(this).next().css('color','aqua');
+			
+			//alert($("#body").find(".myclass").attr("id"))
+
+			//alert("Clecked!!");
+			/*
+			$(this).css("color","red");
+			var parent = $(this).parent();
+			alert(parent.attr("id"));
+			parent.attr("id","sample")
+			
+			alert("Clicked");
+			
+			var children =$("#main").children();
+			children.css("color","lime");
+			
+			
+			alert($("#h1").closest(".test").attr("id"))
+			
+			
+			})
+			
+			
+			var names = [ 'Vinay', 'Hegde', 'sirsi' ];
+			var names = {
+			name : 'Vinay',
+			lname : 'Hegde',
+			ooru : 'sirsi'
+			};
+
+			
+			$.each(names,function(i,v){
+			alert(i+" ,"+v)
+			})
+			
+			
+
+			$.each($('.myclass'), function(i, v) {
+			alert($(v).html())
+			})
+
+			$('.myclass').each(function(i, v) {
+			alert($(v).html())
+			})
+
+			$('.myclass').each(function() {
+			alert($(this).html())
+			})
+			 */
+
+		})
+	})
+</script>
+
+</head>
+<body id="body" class="test">
+
+	<button id="btn">Click Me</button>
+	<div id="wrapper" class="test">
+		<div id="main">
+			<h1 class="myclass" id="h2">Hello</h1>
+			<h1 class="myclass" id="h1">Hello W</h1>
+			<h1 id="demo">ddd</h1>
+			<h1>test</h1>
+			<p>test</p>
+			<p>test</p>
+		</div>
+	</div>
+
+
+
+</body>
+</html>

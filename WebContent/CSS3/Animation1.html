@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style> 
+div {
+    width: 100px;
+    height: 100px;
+    background-image: url("img2.jpg");
+	background-size:100% 100%;
+    -webkit-animation-name: example; /* Chrome, Safari, Opera */
+    -webkit-animation-duration: 4s; /* Chrome, Safari, Opera */
+    animation: example 4s 1 linear ;
+	position:relative;
+    border-radius:50px;
+    top:600px;
+	
+	
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes example {
+    from {background-color: red;}
+    to {background-color: yellow;}
+}
+
+
+
+
+/* Standard syntax */
+@keyframes example {
+    0%   {background-color:red; top:0px; animation-timing-function: ease-in;left:0px;}    
+    20%  {background-color:blue; top:600px; animation-timing-function: ease-out;left:100px;}    
+    40% {background-color:red; top:300px; animation-timing-function: ease-in;left:200px;}
+    60% {background-color:red; top:600px; animation-timing-function: ease-out;left:300px;}
+    80% {background-color:red; top:500px; animation-timing-function: ease-in;left:400px;}
+    100% {background-color:red; top:600px; animation-timing-function: ease-in;left:500px;}
+}
+
+
+
+</style>
+</head>
+<body>
+
+<p><b>Note:</b> This example does not work in Internet Explorer 9 and earlier versions.</p>
+
+<div><br>VG</br></div>
+
+
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<script src="jQuery.js"></script>
+
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<style type="text/css">
+
+.active2{
+	color: fuchsia;
+	background-color: lime;
+}
+
+.active{
+	color:aqua;
+	background-color: lime;
+}
+
+
+</style>
+
+<script type="text/javascript">
+	$j=jQuery.noConflict()
+	$j( function (){
+	//$("h1").css('color','red');
+	//$("h1").css('background-color','yellow');
+	
+	alert($j("h1").html());
+	$j("h1").html("Changed!!");
+	$j("h1").addClass('active'); //getElementbyTag
+	$j("#1").addClass('active2'); // get element by ID
+	$j(".myh2").addClass('active'); // get element by Class
+	$j("#1").addClass('active'); // get element by ID
+	//$j("#1").removeClass('active'); // get element by ID
+	alert($j("#1").hasClass('active')) //check whether element has thois class
+		
+	
+})
+/*	var h1s = document.getElementsByTagName("h1");
+	var h2s = document.getElementsByClassName("myh2");
+	
+	for(var i =0; i<h1s.length;i++){
+		
+		h1s[i].style.color="red";
+		h1s[i].style.backgroundColor="yellow";
+		alert(h1s[i].innerHTML)
+		h1s[i].innerHTML="CHANGED!!"
+		
+	}
+	
+	for(var i =0; i<h2s.length;i++){
+		
+		h2s[i].style.color="blue";
+		h2s[i].style.backgroundColor="magenta";
+		alert(h2s[i].innerHTML)
+		h2s[i].innerHTML="CHANGED!!"
+		
+	}
+	
+	
+	var elem  = document.getElementById("1");
+	elem.style.color = "red";
+	elem.innerHTML="This is ID!!"
+*/	
+
+
+</script>
+
+
+</head>
+<body>
+	<h1>Hello World</h1>
+	<h1>Hello World</h1>
+	<h1>Hello World</h1>
+	<h1>Hello World</h1>
+	<h2 class="myh2" >Hello World</h2>
+	<h2 class="myh2" >Hello World</h2>
+	<h2 id="1">Hello World</h2>
+	<h2 id = "2">Hello World</h2>
+
+
+
+
+
+</body>
+
+
+</html>

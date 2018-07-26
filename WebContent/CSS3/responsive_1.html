@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<style type="text/css">
+#demo {
+	background-color: green;
+	height: 50%;
+}
+
+#header {
+	background-color: maroon;
+	height: 10%;
+}
+
+#wrapper{
+	height:1000px;
+	width:1000px;
+}
+
+
+
+@media only screen and (min-width: 320px) and (max-width: 680px) {
+	#demo {
+		width: 100%;
+		background-color: red;
+	}
+	.s1 {
+		width: 10%
+	}
+	.s2 {
+		width: 20%
+	}
+	.s3 {
+		width: 30%
+	}
+	.s4 {
+		width: 40%
+	}
+	.s5 {
+		width: 50%
+	}
+	.s6 {
+		width: 60%
+	}
+	.s7 {
+		width: 70%
+	}
+	.s8 {
+		width: 80%
+	}
+	.s9 {
+		width: 90%
+	}
+	.s10 {
+		width: 100%
+	}
+	
+	.s-hidden{
+	display: none;
+	}
+}
+
+@media only screen and (min-width: 681px) and (max-width: 900px) {
+	#demo {
+		width: 50%;
+		background-color: yellow;
+	}
+	.m1 {
+		width: 10%
+	}
+	.m2 {
+		width: 20%
+	}
+	.m3 {
+		width: 30%
+	}
+	.m4 {
+		width: 40%
+	}
+	.m5 {
+		width: 50%
+	}
+	.m6 {
+		width: 60%
+	}
+	.m7 {
+		width: 70%
+	}
+	.m8 {
+		width: 80%
+	}
+	.m9 {
+		width: 90%
+	}
+	.m10 {
+		width: 100%
+	}
+	
+	
+	.m-hidden{
+	display: none;
+	}
+}
+
+@media only screen and (min-width: 901px) {
+	#demo {
+		width: 20%;
+		background-color: lime;
+	}
+	.l1 {
+		width: 10%
+	}
+	.l2 {
+		width: 20%
+	}
+	.l3 {
+		width: 30%
+	}
+	.l4 {
+		width: 40%
+	}
+	.l5 {
+		width: 50%
+	}
+	.l6 {
+		width: 60%
+	}
+	.l7 {
+		width: 70%
+	}
+	.l8 {
+		width: 80%
+	}
+	.l9 {
+		width: 90%
+	}
+	.l10 {
+		width: 100%
+	}
+	
+	.l-hidden{
+	display: none;
+	}
+}
+</style>
+</head>
+<body>
+<button class="s4 m-hidden l-hidden"> click me</button>
+<div id="wrapper">
+		<div id="header" class="s-hidden m10 l10">Header</div>
+
+		<div id="demo" class="s10 m5 l2">This is vinayds;gaprejgucomj
+			gopimhyjgojmu it</div>
+</div>
+</body>
+</html>

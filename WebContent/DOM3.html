@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+<div id="main"></div>
+
+</body>
+
+<script type="text/javascript">
+
+	var main = document.getElementById("main");
+
+	
+	function Product(id, name, cost, rating, cat, brand) {
+		this.id = id;
+		this.name = name;
+		this.cost = cost;
+		this.rating = rating;
+		this.category = cat;
+		this.brand = brand;
+
+	};
+	
+	
+	function getTable(arr,fields){
+		
+		var table = '<table border="1" align="center"> <thead><tr>'
+		
+		for(var i=0;i<fields.length;i++){
+			
+			table+="<th>"+fields[i]+"</th>";
+					
+		}
+		table+="</tr></thead><tbody>"
+		
+		for (var j = 0; j < arr.length; j++) {
+			table+="<tr>";
+			for (var k = 0; k < fields.length; k++) {
+				table+="<td>"+arr[j][fields[k]]+"</td>";	
+			}
+			table+="</tr>";			
+		}
+		
+		table+="</table>"
+		
+		return table;
+	}
+	
+	
+	
+	
+	// 1-fashion, 2- sports, 3- electronics, 4-Home Applicance
+
+	var Products = [ new Product(1, "shoe", 11000, 4, "fashion", "Adidas"),
+			new Product(2, "football", 1600, 3, "sports", "Adidas"),
+			new Product(3, "TV", 14500, 2, "electronics", "Samsung"),
+			new Product(4, "Cooker", 1000, 4, "Home Applicance", "Prestige"),
+			new Product(5, "football", 1300, 1, "sports", "Reebok"),
+			new Product(6, "TV", 10000, 5, "electronics", "Sony"),
+			new Product(7, "shoe", 1200, 4, "fashion", "Puma"),
+			new Product(8, "shoe", 10, 3.5, "fashion", "FILA"),
+			new Product(9, "shoe2", 1500, 4.65, "fashion", "Adidas")
+
+	];
+	
+	
+	function Obj(f,l){
+		this.firstName = f;
+		this.lastName = l;		
+	}
+	
+	var nameArray = [new Obj("Sachin", "T"), new Obj("Saurav","G"), new Obj("Rahul","D")];
+	
+	//display as list
+/*
+	main.innerHTML+="<ul>"
+	for(var i=0;i<nameArray.length;i++){
+		main.innerHTML+="<li>"+nameArray[i]+"</li>"		
+	}
+	main.innerHTML+="</ul>"
+
+
+	
+	var data = '<table border="1" align="center">';
+	data+="<thead> <tr> <th>ID</th> <th>Name</th> <th>Cost</th> <th>Rating</th> <th>Category</th> <th>Brand</th> </tr> </thead>";
+	data+='<tbody class="tbody">';	
+	
+	for(var i =0;i<Products.length;i++){
+		
+		data+="<tr><td>"+Products[i].id+"</td> <td>"+Products[i].name+"</td>";
+		data+="<td>"+Products[i].cost+"</td> <td>"+Products[i].rating+"</td>"
+		data+="<td>"+Products[i].category+"</td> <td>"+Products[i].brand+"</td></tr>"
+		
+	}
+	
+	data+='</tbody></table>'
+
+*/
+
+
+	main.innerHTML=getTable(Products,["id","name","cost","rating","category","brand"]);
+	
+</script>
+</html>

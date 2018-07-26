@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<div id="main1"></div>
+
+	<div id="textBx">
+		<br></br>Filter Above Table By: <input type="text" onblur="filterOperation(this)">
+		 
+	</div>
+
+
+	<div id="main2">
+		
+	</div>
+
+
+	<script type="text/javascript">
+		function Product(id, name, cost, rating, cat, brand) {
+			this.id = id;
+			this.name = name;
+			this.cost = cost;
+			this.rating = rating;
+			this.category = cat;
+			this.brand = brand;
+
+		};
+
+		Products = [
+				new Product(1, "shoe", 11000, 4, "fashion", "Adidas"),
+				new Product(2, "football", 1600, 3, "sports", "Adidas"),
+				new Product(3, "TV", 14500, 2, "electronics", "Samsung"),
+				new Product(4, "Cooker", 1000, 4, "Home Applicance", "Prestige"),
+				new Product(5, "football", 1300, 1, "sports", "Reebok"),
+				new Product(6, "TV", 10000, 5, "electronics", "Sony"),
+				new Product(7, "shoe", 1200, 4, "fashion", "Puma"),
+				new Product(8, "shoe", 10, 3.5, "fashion", "FILA"),
+				new Product(9, "shoe2", 1500, 4.65, "fashion", "Adidas")
+
+		];
+
+		// 1-fashion, 2- sports, 3- electronics, 4-Home Applicance
+
+		var main1 = document.getElementById("main1");
+		var main2 = document.getElementById("main2");
+
+
+
+		function sortOperations(heading) {
+
+			//alert(heading)
+			var property = heading;
+			Products.sort(function(p1, p2) {
+				if (p1[property] == p2[property])
+					return 0;
+				else if (p1[property] < p2[property]) {
+					return -1;
+				} else {
+					return 1;
+
+				}
+
+			});
+
+			displayProducts(main1, Products)
+		}
+
+		function filterOperation(tag) {
+
+			//Filter Operations	
+			
+			alert("In filterOperation")
+			var fproperty = tag.value;
+			alert(fproperty)
+			var filteredArray;
+			switch (fproperty) {
+
+			case "category":
+				var filterCat = prompt("Choose category : fashion, sports, electronics, Home Applicance");
+				filteredArray = Products
+						.filter(function(a) {
+							return a.category.toLowerCase() === filterCat
+									.toLowerCase();
+						});
+				break;
+			case "brand":
+				var filterBrand = prompt("Choose Brand to filter : Adidas, Samsung, Prestige, Reebok, Sony, Puma, FILA");
+
+				filteredArray = Products.filter(function(a) {
+					return a.brand.toLowerCase() === filterBrand.toLowerCase();
+				});
+
+				break;
+			case "cost":
+				var costLimit = Number(prompt("Enter cost Limit"));
+				filteredArray = Products.filter(function(a) {
+					return a.cost < costLimit;
+				});
+				break;
+
+			case "rating":
+
+				var minRating = Number(prompt("Enter Minimum rating"));
+				filteredArray = Products.filter(function(a) {
+					return a.rating >= minRating;
+				});
+
+				break;
+			}
+
+			console.log(filteredArray)
+			displayProducts(main2, filteredArray)
+		}
+		
+		
+		function displayProducts(main, Products) {
+
+			keys = [];
+			for ( var key in Products[0]) {
+				keys.push(key);
+			}
+
+			data = getTable(Products, keys);
+			alert(data);
+			main.innerHTML = data;
+
+		}
+
+		//takes any array and fields returns a table 
+		function getTable(arr, fields) {
+
+			var table = '<table border="1" align="center"> <thead><tr>'
+
+			for (var i = 0; i < fields.length; i++) {
+
+				table += "<th onclick=\"sortOperations('"+ fields[i] +"')\">"
+						+ fields[i] + "</th>";
+
+			}
+
+			table += "</tr></thead><tbody>"
+
+			for (var j = 0; j < arr.length; j++) {
+				table += "<tr>";
+				for (var k = 0; k < fields.length; k++) {
+					table += "<td>" + arr[j][fields[k]] + "</td>";
+				}
+				table += "</tr>";
+			}
+
+			table += "</table>"
+
+			return table;
+		}
+
+		displayProducts(main1, Products)
+
+		//		filterOperation(Products);
+	</script>
+
+
+
+
+
+
+</body>
+</html>

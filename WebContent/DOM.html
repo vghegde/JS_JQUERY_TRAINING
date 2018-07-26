@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Hello World</h1>
+	<h1>Hello World</h1>
+	<h1>Hello World</h1>
+	<h1>Hello World</h1>
+	<h2 class="myh2" >Hello World</h2>
+	<h2 class="myh2" >Hello World</h2>
+	<h2 id="1">Hello World</h2>
+	<h2 id = "2">Hello World</h2>
+
+</body>
+<script type="text/javascript">
+	var h1s = document.getElementsByTagName("h1");
+	var h2s = document.getElementsByClassName("myh2");
+	
+	for(var i =0; i<h1s.length;i++){
+		
+		h1s[i].style.color="red";
+		h1s[i].style.backgroundColor="yellow";
+		alert(h1s[i].innerHTML)
+		h1s[i].innerHTML="CHANGED!!"
+		
+	}
+	
+	for(var i =0; i<h2s.length;i++){
+		
+		h2s[i].style.color="blue";
+		h2s[i].style.backgroundColor="magenta";
+		alert(h2s[i].innerHTML)
+		h2s[i].innerHTML="CHANGED!!"
+		
+	}
+	
+	
+	var elem  = document.getElementById("1");
+	elem.style.color = "red";
+	elem.innerHTML="This is ID!!"
+	
+</script>
+</html>

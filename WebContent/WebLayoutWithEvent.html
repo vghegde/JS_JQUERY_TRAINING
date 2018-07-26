@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+
+
+<link rel="stylesheet" href="WebEvent.css">
+<!--  link rel="stylesheet" href="main.css"-->
+
+<title>AJAX Test</title>
+</head>
+
+<script type="text/javascript">
+	window.onload = function () {
+		var tabs = document.getElementsByClassName("tabs");
+		var content = {home:"This is Home Page",contacts:"This is Contacts",services:" This is Services",about:"This is About Us"};
+		
+		for (var i = 0; i < tabs.length; i++) {
+			tabs[i].addEventListener('click', function (){
+				
+				for (var j = 0; j < tabs.length; j++) {
+					tabs[j].style.color = "black";
+					tabs[j].style.backgroundColor = "white";
+				}
+				
+				this.style.color = "red";
+				this.style.backgroundColor = "orange";
+				
+				var main = document.getElementById("main");
+				
+				//alert(content[this.id])
+				
+				main.innerHTML = "<h1>"+content[this.id]+"</h1>";
+		})
+		
+		}
+	}
+</script>
+
+<body>
+	<div id="wrapper">
+
+		<div id="header">
+			<div id="home" class="tabs">Home</div>
+			<div id="contacts" class="tabs">Contacts</div>
+			<div id="services" class="tabs">Services</div>
+			<div id="about" class="tabs">About Us</div>
+
+		</div>
+		<div id="main">main</div>
+
+
+	</div>
+</body>
+</html>

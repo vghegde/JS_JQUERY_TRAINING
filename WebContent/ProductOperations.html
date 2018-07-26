@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<div id="main1"></div>
+
+	<div id="main2">
+		Filter Above Table By: <input type="text" onblur="doFilter(this)">
+	</div>
+
+
+	<script type="text/javascript">
+		function Product(id, name, cost, rating, cat, brand) {
+			this.id = id;
+			this.name = name;
+			this.cost = cost;
+			this.rating = rating;
+			this.category = cat;
+			this.brand = brand;
+
+		};
+		// 1-fashion, 2- sports, 3- electronics, 4-Home Applicance
+
+		var main1 = document.getElementById("main1");
+		var main2 = document.getElementById("main2");
+
+		function displayProducts(main, Products) {
+
+			keys = [];
+			for ( var key in Products[0]) {
+				keys.push(key);
+			}
+
+			main.innerHTML = getTable(Products, keys);
+
+		}
+
+		//takes any array and fields returns a table 
+		function getTable(arr, fields) {
+
+			var table = '<table border="1" align="center"> <thead><tr>'
+
+			for (var i = 0; i < fields.length; i++) {
+
+				table += "<th>" + fields[i] + "</th>";
+
+			}
+			table += "</tr></thead><tbody>"
+
+			for (var j = 0; j < arr.length; j++) {
+				table += "<tr>";
+				for (var k = 0; k < fields.length; k++) {
+					table += "<td>" + arr[j][fields[k]] + "</td>";
+				}
+				table += "</tr>";
+			}
+
+			table += "</table>"
+
+			return table;
+		}
+
+		var Products = [
+				new Product(1, "shoe", 11000, 4, "fashion", "Adidas"),
+				new Product(2, "football", 1600, 3, "sports", "Adidas"),
+				new Product(3, "TV", 14500, 2, "electronics", "Samsung"),
+				new Product(4, "Cooker", 1000, 4, "Home Applicance", "Prestige"),
+				new Product(5, "football", 1300, 1, "sports", "Reebok"),
+				new Product(6, "TV", 10000, 5, "electronics", "Sony"),
+				new Product(7, "shoe", 1200, 4, "fashion", "Puma"),
+				new Product(8, "shoe", 10, 3.5, "fashion", "FILA"),
+				new Product(9, "shoe2", 1500, 4.65, "fashion", "Adidas")
+
+		];
+
+		function sortOperations(Products) {
+			var choice;
+
+			do {
+				choice = Number(prompt("Sort By 1 - cost low to high , 2- cost High to Low, 3 - by rating"));
+
+			} while (isNaN(choice));
+
+			var property;
+
+			switch (choice) {
+			case 1:
+			case 2:
+				property = "cost";
+				break;
+			case 3:
+				property = "rating";
+				break;
+			}
+
+			Products.sort(function(p1, p2) {
+				if (p1[property] == p2[property])
+					return 0;
+				else if (p1[property] < p2[property]) {
+
+					if (choice === 1)
+						return -1;
+					else
+						return 1;
+
+				} else {
+
+					if (choice === 1)
+						return 1;
+					else
+						return -1;
+
+				}
+
+			});
+
+			//alert(JSON.stringify(Products));
+
+			console.log(Products)
+
+			displayProducts(main1, Products)
+		}
+
+		
+
+		function filterOperation(Products) {
+
+			//Filter Operations		
+			var choice;
+
+			do {
+
+				choice = Number(prompt("Filter By 1 - Category , 2- Brand, 3 - cost, 4- Rating"));
+
+			} while (isNaN(choice));
+
+			var filteredArray;
+			switch (choice) {
+
+			case 1:
+				var filterCat = prompt("Choose category : fashion, sports, electronics, Home Applicance");
+				filteredArray = Products
+						.filter(function(a) {
+							return a.category.toLowerCase() === filterCat
+									.toLowerCase();
+						});
+				break;
+			case 2:
+				var filterBrand = prompt("Choose Brand to filter : Adidas, Samsung, Prestige, Reebok, Sony, Puma, FILA");
+
+				filteredArray = Products.filter(function(a) {
+					return a.brand.toLowerCase() === filterBrand.toLowerCase();
+				});
+
+				break;
+			case 3:
+				var costLimit = Number(prompt("Enter cost Limit"));
+				filteredArray = Products.filter(function(a) {
+					return a.cost < costLimit;
+				});
+				break;
+
+			case 4:
+
+				var minRating = Number(prompt("Enter Minimum rating"));
+				filteredArray = Products.filter(function(a) {
+					return a.rating >= minRating;
+				});
+
+				break;
+
+			}
+
+			console.log(filteredArray)
+			displayProducts(main2, filteredArray)
+		}
+		
+		sortOperations(Products)
+		
+//		filterOperation(Products);
+		
+		
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<div id="main"></div>
+
+
+
+
+	<script type="text/javascript">
+		function generateTickTacToe() {
+
+			var table = "<table  border='1' align='center' height='300px' width ='300px' ><tbody>"
+
+			for (var i = 1; i <= 3; i++) {
+				table += "<tr>"
+				for (var j = 1; j <= 3; j++) {
+					//table += "<td height='30px' width ='30px' class='cells'><h4 id=cell"	+ (i * j) + "></h4></td>"
+					
+					table += "<td height='30px' width ='30px' align='center' class='cells'></td>"
+				}
+				table += "</tr>"
+			}
+
+			table += "</tbody></table>";
+
+			//alert(table)
+			return table;
+		}
+
+		document.getElementById("main").innerHTML = generateTickTacToe();
+
+		window.onload = function() {
+			var count = 0;
+			//var h4s = document.getElementsByTagName("h4");
+			var cellList = document.getElementsByClassName("cells");
+			for (var i = 0; i < cellList.length; i++) {
+				cellList[i].addEventListener('click', function() {
+					//alert(count)
+					//alert(this.innerHTML)
+					if (!this.innerHTML) {
+						if (count % 2 === 0)
+							this.innerHTML = "x";
+						else
+							this.innerHTML = "o"
+
+						count++;
+					}
+
+				})
+			}
+		}
+	</script>
+
+</body>
+</html>

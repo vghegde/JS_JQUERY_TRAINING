@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style type="text/css">
+
+#sample{
+
+height: 200px;
+width: 100px;
+background-color:red;
+display: none
+
+
+}
+
+
+#main{
+
+height: 1000px;
+width: 1000px;
+
+background-color: lime
+
+
+}
+
+#main:ONLY-CHILD  #sample {
+	display: block;
+	background-color: blue
+}
+
+
+</style>
+
+
+</head>
+<body>
+
+
+
+<div id="main">Hi
+
+<h1>Hello</h1>
+<h1>Hello</h1>
+<div id="sample">
+	Hello World!!
+</div>
+
+</div>
+
+</body>
+</html>

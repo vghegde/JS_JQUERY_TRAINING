@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<script src="jQuery.js"></script>
+<script type="text/javascript">
+
+var names = [ "img1.jpg", "img2.jpg", "img3.jpg" ];
+
+function timers(names) {
+
+	 var timer;
+	 var i=0;
+	alert("i="+i+", names="+names)
+	 
+	function start() {
+		timer = setInterval(function() {
+			//var data+="Hello! "
+			//$("h1").append("Hello! "+names[i % names.length]+" ")
+			$("#image").attr('src',names[i % names.length])
+			
+			i++;
+		}, 1000)
+		
+		$("#btn").prop('disabled',true)
+	}
+
+	function stop() {
+		clearInterval(timer);
+		$("#btn").prop('disabled',false)
+	}
+	
+	return [start,stop]
+
+}
+ 
+ var functions = timers(names);
+ var start = functions[0];
+ var stop = functions[1];
+
+
+$(function() {
+		
+	
+
+		$("#btn").click(function() {
+			start()
+		})
+
+		$("#btn2").click(function() {
+			stop()
+		})
+
+		/*
+		 function start() {
+		 timer = setTimeout(function(){
+		 data+=="Hello! "
+		 $("h1").html(data)
+		 },2000)
+		 }
+		 */
+		 
+		/*
+		 function stop() {
+		 clearTimeout(timer); 
+		 }
+		 */
+
+	})
+</script>
+
+</head>
+
+
+<body>
+
+
+	<div>
+
+		<button id="btn">Start</button>
+
+		<button id="btn2">Stop</button>
+	</div>
+
+	<div>
+		<img  src="" id="image" height="500px" width="500px">
+	</div>
+</body>
+</html>

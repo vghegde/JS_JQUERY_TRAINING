@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+
+<script type="text/javascript">
+
+	function demo(tag) {
+
+		tag.style.color = "red"
+		tag.style.background = "yellow"
+
+		var h1s = document.getElementsByTagName("h1")
+
+		for (var i = 0; i < h1s.length; i++) {
+			if (h1s[i] != tag) {
+				nomalize(h1s[i])
+			}
+		}
+	}
+
+	function nomalize(tag) {
+
+		tag.style.color = "black"
+		tag.style.background = "white"
+
+	}
+	
+	function demo2(tag) {
+
+		tag.style.color = "blue"
+		tag.style.background = "gray"
+		
+			var h1s = document.getElementsByTagName("h1")
+
+			for (var i = 0; i < h1s.length; i++) {
+				if (h1s[i] != tag) {
+					nomalize(h1s[i])
+				}
+			}
+
+
+	}
+	
+	function onBlur(tag){
+		alert(tag.value)
+		tag.value="Chaged"
+	}
+	
+	
+	window.onload = function (){
+		var btn=document.getElementById("btn");
+		btn.addEventListener('click', function (){ alert("Clicked!!!") } )
+		
+		var tags = document.getElementsByClassName("myh1");
+		
+		for(var i=0;i<tags.length ;i++){
+			tags[i].addEventListener('click', function (){ console.log("clicked!!")
+									for (var j = 0; j < tags.length; j++) {
+										tags[j].style.color="black";
+										tags[j].style.backgroundColor="white"
+									}
+					
+									this.style.color="red";
+									this.style.backgroundColor="grey";
+												
+			})
+			
+		}
+		
+		
+		
+	}
+	
+</script>
+
+<body >
+
+	<button id="btn">Click me!!</button>
+
+	Username :
+
+	<input type="text" onblur="onBlur(this)">
+
+	<!-- h1 onclick="demo(this)" onmouseover="demo2(this)">Hello World</h1>
+	<h1 onclick="demo(this)" onmouseover="demo2(this)">Hello World</h1>
+	<h1 onclick="demo(this)" onmouseover="demo2(this)">Hello World</h1>
+	<h1 onclick="demo(this)" onmouseover="demo2(this)">Hello World</h1-->
+	
+	
+	<h1 class="myh1">Hello World</h1>
+	<h1 class="myh1">Hello World</h1>
+	<h1 class="myh1">Hello World</h1>
+	<h1 class="myh1">Hello World</h1>
+
+
+
+
+</body>
+</html>

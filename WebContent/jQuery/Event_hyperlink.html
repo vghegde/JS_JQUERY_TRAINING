@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script src="jQuery.js"></script>
+<script type="text/javascript">
+	
+	$(function () {
+		$("#link").click(function (ev) {
+			ev.preventDefault();
+			$(this).css('color',"lime");
+			$(this).css('backgroundColor',"red");
+			$(this).html("Hello");
+		})
+		
+	})
+
+</script>
+
+</head>
+<body>
+	<a id="link" href="test.html">click here</a>
+</body>
+</html>

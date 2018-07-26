@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<style>
+#div1 {
+width:24%;
+height:250px;
+border:1px solid #aaaaaa;
+float: left;
+}
+</style>
+<script>
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function drag(ev) {
+    //ev.dataTransfer.setData("text", ev.target.id);
+	localStorage.setItem('drag',ev.target.id);
+}
+
+function drop(ev) {
+    ev.preventDefault();
+    //var data = ev.dataTransfer.getData("text");
+	var data =localStorage.getItem('drag');
+	alert(data)
+    ev.target.appendChild(document.getElementById(data));
+	localStorage.removeItem('drag');
+}
+</script>
+</head>
+<body>
+
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+<div id="drag1" draggable="true" ondragstart="drag(event)" >
+
+
+<h1>This will be dragged</h1>
+</div>
+
+</body>
+</html>
